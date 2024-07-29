@@ -102,5 +102,56 @@ class Program
             Console.WriteLine($"Key {key} not found.");
         }
     }
-   
+
+    // Method to add a new key and value to the dictionary
+    static void AddNewKeyValue(Dictionary<string, List<string>> dict)
+    {
+        Console.WriteLine("Enter new key:");
+        string key = Console.ReadLine();
+        Console.WriteLine("Enter value for the new key:");
+        string value = Console.ReadLine();
+    
+        // Add the new key-value pair to the dictionary
+        if (dict.ContainsKey(key))
+        {
+            Console.WriteLine($"Key '{key}' already exists. Use option 'e' to add a value to an existing key.");
+        }
+        else
+        {
+            dict[key] = new List<string> { value };
+            Console.WriteLine($"Added new key: {key}, with value: {value}");
+        }
+    }
+    
+    // Method to add a value to an existing key
+    static void AddValueToExistingKey(Dictionary<string, List<string>> dict)
+    {
+        Console.WriteLine("Enter the key to which you want to add a value:");
+        string key = Console.ReadLine();
+    
+        // Check if the key exists
+        if (dict.ContainsKey(key))
+        {
+            Console.WriteLine("Enter the value to add:");
+            string value = Console.ReadLine();
+            dict[key].Add(value);
+            Console.WriteLine($"Added value: {value} to key: {key}");
+        }
+        else
+        {
+            Console.WriteLine($"Key '{key}' does not exist. Use option 'd' to add a new key.");
+        }
+    }
+    
+    // Method to sort the keys of the dictionary and display them
+    static void SortKeys(Dictionary<string, List<string>> dict)
+    {
+        // Retrieve the keys, sort them, and display the sorted keys
+        var sortedKeys = dict.Keys.OrderBy(key => key).ToList();
+        Console.WriteLine("Sorted Keys:");
+        foreach (var key in sortedKeys)
+        {
+            Console.WriteLine(key);
+        }
+    }
 }
