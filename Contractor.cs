@@ -1,5 +1,10 @@
 using System;
-// Liam Mowatt and 
+
+// Liam Mowatt and Charles Sober
+// COP 2360 08/06/2024 Final EXAM Project Module 10
+
+
+
 public class Contractor
 {
     // Fields
